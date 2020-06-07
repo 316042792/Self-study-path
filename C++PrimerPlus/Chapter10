@@ -3,6 +3,39 @@
 函数匹配规则中：const与非const之间的区别仅限于指针与引用
 头文件中一般放：符号常量 结构声明 类声明 模板声明 内联函数
 C++并行编程这本书中没有提及
+
+类声明
+
+class className
+{
+private:
+   data member declarations
+   private class method(default inline)
+public:
+   member function prototypes
+}
+类方法实现
+
+void Stock::show(void)
+{
+......
+}
+调用类似使用结构成员  使用   a.b()
+构造函数（函数声明对象时，将自动调用构造函数）
+
+Stock::Stock(const string & co, long n = 0, double pr = 0.0){...}
+(不能直接用成员名作参数）
+隐式调用构造函数：           Stock garment("Furry mason", 50, 2.5)
+用new：            Stock *pstock = new Stock("Electronic Games", 18, 19.0);
+如果提供了构造函数，就必须提供默认构造函数，即没有任何参数的构造函数，或给所有参数提供默认值也行
+析构函数
+
+Stock::~Stock(){    };
+类中定义常量：
+
+enum{Months = 12};   or   static const int Months = 12;
+
+
 课后复习题答案
 1.a.自动变量b.静态外部变量c.静态内部变量d.静态局部变量
 2.一个全部引入，一个引入部分指定的名称，编译指令不会重定义。
